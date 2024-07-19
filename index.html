@@ -5,16 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
     <title>Tienda de ropa</title>
+    <script src="app.js"></script>
 </head>
 <body>
+    
     <header>
-        <nav>
-            <a href="./index.html"> <img src="img/logo.png" alt="logo">
-                <div>
-                    <a href="#">Clothing</a>
-                    <a href="#" id="cart"><img src="img/carrito.png" alt="carrito de compras"> <span id="cuenta-carrito">0</span></a>
-                </div>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="./index.html"><img src="img/plantilla-logotipo-negocio-diseno-marca-boutique_278222-6743.png" alt="logo"></a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar productos..." />
+                <button id="searchButton">Buscar</button>
+            </div>
+            <div class="nav-cart">
+                <a href="#" id="cart"><img src="img/carrito.png" alt="carrito de compras"> <span id="cuenta-carrito">0</span></a>
+            </div>
         </nav>
+
+        <div id="productosModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Productos</h3>
+                        <span class="close-btn" id="closeModalBtn">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div id="productosContainer" class="row"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-secondary" id="closeFooterBtn">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
 
    
   <!--banner-->
@@ -24,11 +49,8 @@
      <p> La culpa de gastar, se acaba al estrenar.</p>   
     </div>
   </div>
-  
 
-  <!--shop content-->
 
-  <div id="shopContent"  class="shop-content"></div>
     </header>
 
 
@@ -147,7 +169,7 @@
 
 
 
-
+    
 </main>
 
 
