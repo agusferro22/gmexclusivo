@@ -1,35 +1,33 @@
-body{
+body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 0%;
+    margin: 0;
 }
 
-
-:root{
---color-acento: #0056b3;
---color-acento-claro: #ee613033;
---color-texto: black;
+:root {
+    --color-acento: #0056b3;
+    --color-acento-claro: #ee613033;
+    --color-texto: black;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--color-texto);
-
 }
 
-a:hover:not(#cart){
+a:hover:not(#cart) {
     color: var(--color-acento);
 }
 
-header{
-box-shadow: 0 3px 5px rgba(0,0,0,0.104);
-padding: 10px 0;
+header {
+    box-shadow: 0 3px 5px rgba(0,0,0,0.104);
+    padding: 10px 0;
 }
+
 header nav {
     display: flex;
     justify-content: space-between;
     margin: 0 60px;
 }
-
 
 header nav div {
     display: flex;
@@ -38,7 +36,7 @@ header nav div {
     position: relative;
 }
 
-#cuenta-carrito{
+#cuenta-carrito {
     background-color: var(--color-acento);
     border-radius: 100%;
     display: inline-block;
@@ -48,14 +46,13 @@ header nav div {
     position: absolute;
 }
 
-#logo{
+#logo {
     height: 40px;
 }
 
 header nav img {
     height: 25px;
 }
-
 
 .container {
     margin-top: 50px;
@@ -75,26 +72,26 @@ header nav img {
     background-color: #0056b3;
 }
 
+/* Estilos generales del modal */
 .modal {
-    display: none;
+    display: none; /* Oculta el modal por defecto */
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
 }
 
 .modal-dialog {
-    background-color: white;
-    margin: 15% auto;
+    position: relative;
+    margin: auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 5px;
+    max-width: 600px; /* Ancho máximo del modal */
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 .modal-header, .modal-footer {
@@ -107,18 +104,50 @@ header nav img {
     margin: 0;
 }
 
-.close-btn, .btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    padding: 5px 10px;
-    border: none;
+.close-btn {
+    font-size: 24px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
-.close-btn:hover, .btn-secondary:hover {
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+}
+
+/* Estilos de los botones del modal */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
     background-color: #5a6268;
 }
+
+
+
 
 .row {
     display: flex;
@@ -151,19 +180,15 @@ header nav img {
     margin: 5px 0;
 }
 
-
-
-
-
 /* Estilos para la navbar */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    padding: 10px 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0; /* Elimina el margen */
+    margin: 0;
 }
 
 .nav-logo img {
@@ -201,24 +226,53 @@ header nav img {
 
 /* Estilos para el banner */
 .banner {
-    margin: 0; /* Elimina el margen */
-    padding: 0; /* Elimina el padding */
+    margin: 0;
+    padding: 0;
 }
+
+
+.success-message {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+#noResultsMessage {
+    display: none; /* Inicialmente oculto */
+    background-color: #ffcccc; /* Color de fondo rojo claro */
+    color: #cc0000; /* Color de texto rojo oscuro */
+    border: 1px solid #cc0000; /* Borde del mismo color que el texto */
+    padding: 10px; /* Espaciado interno */
+    margin: 20px 0; /* Margen superior e inferior */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centrar el texto */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+
+
 
 .banner-container {
     text-align: center;
-    background-image: url('img/12-fotor-2024030611265.png'); /* Reemplaza con tu imagen */
+    background-image: url('img/12-fotor-2024030611265.png');
     background-size: cover;
     background-position: center;
     color: rgb(87, 84, 84);
-    padding: 60px 20px; /* Ajusta el padding según sea necesario */
+    padding: 60px 20px;
 }
-
 
 .banner h1 {
     margin: 0;
     color: white;
-    text-shadow: 1px 1px 3px rgba( 0,0,0,0.2);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     font-size: 62px;
     font-weight: bold;
 }
@@ -226,150 +280,100 @@ header nav img {
 .banner p {
     font-size: 30px;
     color: white;
-    opacity:0.7 ;
-    text-shadow: 1px 1px 3px rgba( 0,0,0,0.2);
+    opacity: 0.7;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-
-img{
+img {
     max-width: 100%;
 }
 
-
-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    gap: 20px; 
-    padding: 20px; 
-}
-
+/* Estilo para el contenedor principal de los productos */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
+    margin: 20px 20px; /* Añade márgenes laterales */
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
+/* Estilo para cada ítem del grid */
 .item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     transition: transform 0.3s;
 }
 
 .item:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 
-.item figure {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-}
-
+/* Estilo para las imágenes de los productos */
 .item img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.item img:hover {
-    transform: scale(1.1);
-}
-
+/* Estilo para el contenedor de información del producto */
 .info-product {
+    padding: 15px;
     text-align: center;
-    padding: 10px;
 }
 
+/* Estilo para el título del producto */
 .info-product h2 {
-    margin: 10px 0;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
+/* Estilo para el precio del producto */
 .info-product .price {
-    font-size: 18px;
-    color: #333;
+    font-size: 1.1em;
+    color: #000000;
+    margin-bottom: 15px;
 }
 
+/* Estilo para el botón de añadir al carrito */
 .info-product button {
-    background-color: #af20d3;
+    background-color: #3498db;
     color: #fff;
     border: none;
     padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .info-product button:hover {
-    background-color: #993399;
-}
-
-
-
-
-
-.info-product {
-    padding: 10px;
-}
-
-.info-product h2 {
-    margin: 0;
-    text-align: center;
-}
-
-.info-product button {
-    background-color: #007bff; 
-    color: #fff; 
-    border: none;
-    padding: 10px 20px; 
-    margin-top: 20px; 
-    cursor: pointer;
-    display: block; 
-    margin: 0 auto; 
-    transition: background-color 0.3s; 
-}
-
-.info-product button:hover {
-    background-color: #007bff; 
-}
-
-.info-product .price {
-    text-align: center; 
+    background-color: #2980b9;
 }
 
 /* Media queries para ajustar la galería en dispositivos más pequeños */
 @media (max-width: 768px) {
-    main {
+    .grid-container {
         grid-template-columns: repeat(3, 1fr); /* 3 columnas para pantallas más pequeñas */
+        margin: 20px 30px; /* Ajusta el margen para pantallas más pequeñas */
     }
 }
 
 @media (max-width: 480px) {
-    main {
+    .grid-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
+        margin: 20px 15px; /* Ajusta el margen para móviles */
     }
 }
 
-/*footer*/
+/* Estilo para el footer */
 footer {
     background-color: #333;
     color: #fff;
     padding: 40px 0;
+    margin-top: 40px; /* Añade un margen superior para separar del contenido anterior */
 }
 
-.container {
+footer .container {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
@@ -402,11 +406,3 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
-
-
-
-
-
-
-
-
