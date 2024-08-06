@@ -102,6 +102,7 @@ function renderCartProducts(cartProducts) {
     }
 }
 
+
 // Función para eliminar un producto del carrito
 function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -114,7 +115,10 @@ function removeFromCart(productId) {
 // Función para actualizar el total del carrito
 function updateCartTotal(cartProducts) {
     const total = cartProducts.reduce((sum, product) => sum + product.precio, 0);
-    document.getElementById('total-carrito').textContent = `Total: $${total}`;
+    const totalCarritoElement = document.getElementById('total-carrito');
+    if (totalCarritoElement) {
+        totalCarritoElement.textContent = `Total: $${total}`;
+    }
 }
 
 // Búsqueda de productos

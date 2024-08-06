@@ -23,29 +23,30 @@
         </nav>
     </header>
     
-    <!-- Modal de productos -->
-    <div id="productosModal" class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Cabecera del modal -->
-                <div class="modal-header">
-                    <h3 class="modal-title">Productos</h3>
-                    <span class="close-btn" id="closeModalBtn">&times;</span>
-                </div>
-                <!-- Cuerpo del modal -->
-                <div class="modal-body">
-                    <div id="productosContainer" class="row"></div>
-                    
-                </div>
-                <!-- Pie del modal -->
-                <div class="modal-footer">
-                    <button class="btn-secondary" id="closeFooterBtn">Cerrar</button>
-                    <button class="btn-secondary" id="clearCartBtn">Borrar Productos</button>
-                    <button class="btn-primary" id="checkoutBtn">Finalizar Compra</button>
-                </div>
+  <!-- Modal de productos -->
+<div id="productosModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Cabecera del modal -->
+            <div class="modal-header">
+                <h3 class="modal-title">Productos</h3>
+                <span class="close-btn" id="closeModalBtn">&times;</span>
+            </div>
+            <!-- Cuerpo del modal -->
+            <div class="modal-body">
+                <div id="productosContainer" class="row"></div>
+            </div>
+            <!-- Pie del modal -->
+            <div class="modal-footer">
+                <p id="total-carrito" class="text-lg font-bold">Total: $0</p> <!-- Agrega esto para mostrar el total -->
+                <button class="btn-secondary" id="closeFooterBtn">Cerrar</button>
+                <button class="btn-secondary" id="clearCartBtn">Borrar Productos</button>
+                <button class="btn-primary" id="checkoutBtn">Finalizar Compra</button>
             </div>
         </div>
     </div>
+</div>
+
     <!-- Mensaje de éxito -->
     <div id="successMessage" class="success-message">Compra finalizada</div>
 <!-- Carrusel -->
