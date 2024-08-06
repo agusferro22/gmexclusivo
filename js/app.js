@@ -47,6 +47,7 @@ function renderProducts(products) {
                     <p class="price">Color: ${product.color}</p>
                     <p class="price">Categoría: ${product.categoria}</p>
                     <button onclick="addToCart('${product.id}')">Añadir al carrito</button>
+                   
                 </div>
             </div>
         </div>`
@@ -73,6 +74,47 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartCount = cart.length;
     document.getElementById('cuenta-carrito').textContent = cartCount;
+}
+
+// Función para renderizar los productos en el carrito
+function renderCartProducts(cartProducts) {
+    const cartContainer = document.getElementById('productosContainer');
+    if (cartContainer) {
+        cartContainer.innerHTML = cartProducts.map(product => 
+            `<div class="cart-item mb-4 p-4 border border-gray-200 rounded shadow-sm">
+                <figure>
+                    <img src="${product.imagen}" alt="${product.producto}" title="${product.producto}" class="cart-item-img w-32 h-32 object-cover">
+                </figure>
+                <div class="cart-item-info ml-4">
+                    <h2 class="text-lg font-semibold">${product.producto}</h2>
+                    <p class="text-sm text-gray-600">${product.descripcion}</p>
+                    <p class="price text-lg font-bold">$${product.precio}</p>
+                    <p class="price text-sm text-gray-500">Color: ${product.color}</p>
+                    <p class="price text-sm text-gray-500">Categoría: ${product.categoria}</p>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 mt-2" onclick="removeFromCart('${product.id}')">
+                        Eliminar
+                    </button>
+                </div>
+            </div>`
+        ).join('');
+        // Actualiza el total del carrito
+        updateCartTotal(cartProducts);
+    }
+}
+
+// Función para eliminar un producto del carrito
+function removeFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(product => product.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    renderCartProducts(cart);
+}
+
+// Función para actualizar el total del carrito
+function updateCartTotal(cartProducts) {
+    const total = cartProducts.reduce((sum, product) => sum + product.precio, 0);
+    document.getElementById('total-carrito').textContent = `Total: $${total}`;
 }
 
 // Búsqueda de productos
@@ -149,25 +191,32 @@ if (elements.checkoutBtn) {
     });
 }
 
-// Función para renderizar productos en el carrito
-function renderCartProducts(cartProducts) {
-    const cartContainer = document.getElementById('productosContainer');
-    if (cartContainer) {
-        cartContainer.innerHTML = cartProducts.map(product => 
-            `<div class="grid-container">
-                <div class="item">
-                    <figure>
-                        <img src="${product.imagen}" alt="${product.producto}" title="${product.producto}">
-                    </figure>
-                    <div class="info-product">
-                        <h2>${product.producto}</h2>
-                        <p>${product.descripcion}</p>
-                        <p class="price">$${product.precio}</p>
-                        <p class="price">Color: ${product.color}</p>
-                        <p class="price">Categoría: ${product.categoria}</p>
-                    </div>
-                </div>
-            </div>`
-        ).join('');
-    }
+// Carrusel
+let currentSlide = 0;
+
+// Función para mostrar la diapositiva en el índice proporcionado
+function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    const newTransform = -currentSlide * 100;
+    document.querySelector('.carousel-inner').style.transform = `translateX(${newTransform}%)`;
 }
+
+// Función para avanzar a la siguiente diapositiva
+function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+}
+
+// Función para retroceder a la diapositiva anterior
+function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+}
+
+// Configura un temporizador para avanzar automáticamente a la siguiente diapositiva cada 5 segundos
+setInterval(nextSlide, 5000);
+
+// Muestra la diapositiva inicial (la primera diapositiva) al cargar la página
+showSlide(currentSlide);

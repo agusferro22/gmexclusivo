@@ -35,6 +35,7 @@
                 <!-- Cuerpo del modal -->
                 <div class="modal-body">
                     <div id="productosContainer" class="row"></div>
+                    
                 </div>
                 <!-- Pie del modal -->
                 <div class="modal-footer">
@@ -47,15 +48,33 @@
     </div>
     <!-- Mensaje de éxito -->
     <div id="successMessage" class="success-message">Compra finalizada</div>
-
-    <!-- Banner -->
-    <div class="banner">
-        <div class="banner-container">
-            <h1>Tienda De Ropa</h1>
-            <p> La culpa de gastar, se acaba al estrenar.</p>   
+<!-- Carrusel -->
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/por1050.png" alt="Imagen 1">
+            <div class="carousel-caption">
+                
+            </div>
         </div>
+        <div class="carousel-item">
+            <img src="img/por105.png" alt="Imagen 2">
+            <div class="carousel-caption">
+              
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/por1053.png" alt="Imagen 3">
+            <div class="carousel-caption">
+                
+            </div>
+        </div>
+        <!-- Agrega más elementos si lo deseas -->
     </div>
-
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+</div>
+    
     <main>
         <section id="productos-container" class="grid-container"></section>
         <p id="noResultsMessage" style="display: none;">No se encontraron productos para su búsqueda.</p>
